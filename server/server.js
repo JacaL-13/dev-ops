@@ -26,6 +26,16 @@ app.get('/css', homeCSS)
 app.get('/js', (req, res) => {
 	res.sendFile(path.join(__dirname, '../public/home.js'))
   })
+app.get('/fail', fakeFunction)
+
+function fakeFunction() {
+  console.log('fake')
+  try {
+    notAFunction()
+  } catch (error) {
+    rollbar.error(`This isn't a function.`)
+  }
+}
 
 const { PORT } = process.env
 
