@@ -13,7 +13,7 @@ const {homeHTML, homeCSS, homeJS} = require('./controllers/pageCtrl')
 // include and initialize the rollbar library with your access token
 var Rollbar = require('rollbar')
 var rollbar = new Rollbar({
-  accessToken: 'cd7516982d72402cbd02d72cf54d080c',
+  accessToken: process.env.RB_TOKEN,
   captureUncaught: true,
   captureUnhandledRejections: true,
 })
